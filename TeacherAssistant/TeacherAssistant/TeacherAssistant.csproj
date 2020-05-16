@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Messenger\" />
+    <Folder Include="Models\Gradebook\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
