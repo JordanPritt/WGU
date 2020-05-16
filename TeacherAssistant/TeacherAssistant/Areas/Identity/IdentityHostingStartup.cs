@@ -20,8 +20,10 @@ namespace TeacherAssistant.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("TeacherAssistantContextConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<TeacherAssistantContext>();
+                services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<TeacherAssistantContext>()
+                    .AddDefaultUI()
+                    .AddDefaultTokenProviders();
 
                 services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
             });
