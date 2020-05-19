@@ -6,19 +6,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TeacherAssistant.Models.Students
 {
-    public class Student : IStudent
+    public class StudentTableItem
     {
-        [Key]
         public int StudentId { get; set; }
-        [Required]
-        public string TeacherId { get; set; }
-        [Display(Name = "First Name")]
-        [Required]
+        [Display(Name ="First Name")]
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
-        [Required]
         public string LastName { get; set; }
-        [EmailAddress]
-        public string Email { get; set; }
+        public int Attendance { get; set; }
+        public decimal Grade { get; set; }
     }
 }

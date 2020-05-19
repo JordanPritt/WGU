@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Models\Messenger\" />
     <Folder Include="Models\Gradebook\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

@@ -1,45 +1,23 @@
-﻿@model TeacherAssistant.Models.Students.Student
+﻿@model TeacherAssistant.Models.Students.StudentsViewModel
 
 @{
     ViewData["Title"] = "Students";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-
 }
 
 <!-- Info Cards -->
 <div class="row mt-5">
     <div class="col-3">
-        <div class="card grow box-shadow" style="min-height:10em;">
-            <div class="card-header main-gradient"></div>
-            <div class="card-body">
-                <p>Options to go in here</p>
-            </div>
-        </div>
+        <partial name="~/Views/Students/_StudentDatePartial.cshtml">
     </div>
     <div class="col-3">
-        <div class="card grow box-shadow" style="min-height:10em;">
-            <div class="card-header main-gradient"></div>
-            <div class="card-body">
-                <p>Contet goes here...</p>
-            </div>
-        </div>
+        <partial name="~/Views/Students/_StudentAttendancePartial.cshtml">
     </div>
     <div class="col-3">
-        <div class="card grow box-shadow" style="min-height:10em;">
-            <div class="card-header main-gradient"></div>
-            <div class="card-body">
-                <p>Contet goes here...</p>
-            </div>
-        </div>
+        <partial name="~/Views/Students/_StudentBirthdaysPartial.cshtml">
     </div>
     <div class="col-3">
-        <div class="card grow box-shadow" style="min-height:10em;">
-            <div class="card-header main-gradient"></div>
-            <div class="card-body">
-                <p>Contet goes here...</p>
-            </div>
-        </div>
+        <partial name="~/Views/Students/_StudentAlertsPartial.cshtml">
     </div>
 </div>
 
@@ -53,6 +31,18 @@
     </div>
 </div>
 
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+    </div>
+}
+
 <!-- Students Table -->
 <div class="row mt-3">
     <div class="col-12">
@@ -65,49 +55,43 @@
             <th scope="col">Actions</th>
             </thead>
             <tbody>
-                @* TODO: pull data in to populate table *@
-                <tr>
-                    <td>Jordan</td>
-                    <td>Pritt</td>
-                    <td>160 / 180</td>
-                    <td>85%</td>
-                    <td class="text-center">
-                        <div class="container">
-                            <div class="row text-center">
-                                <div class="col-4" data-toggle="tooltip" data-placement="top" title="Edit Student">
-                                    <i class="fas fa-user-edit icon-btn"></i>
+                @if (Model.StudentsTable != null && Model.StudentsTable.Count() > 0)
+                {
+                    @foreach (var student in Model.StudentsTable)
+                    {
+                        <tr>
+                            <td>@student.FirstName</td>
+                            <td>@student.LastName</td>
+                            <td>@student.Attendance / 180</td>
+                            <td>@student.Grade</td>
+                            <td class="text-center">
+                                <div class="container">
+                                    <div class="row text-center">
+                                        <div class="col-4" data-toggle="tooltip" data-placement="top" title="Edit Student">
+                                            <i class="fas fa-user-edit icon-btn"></i>
+                                        </div>
+                                        <div class="col-4" data-toggle="tooltip" data-placement="top" title="Message Student">
+                                            <i class="fas fa-comment-alt icon-btn"></i>
+                                        </div>
+                                        <div class="col-4" data-toggle="tooltip" data-placement="top" title="Student Alerts">
+                                            <i class="fas fa-bell icon-btn"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-4" data-toggle="tooltip" data-placement="top" title="Message Student">
-                                    <i class="fas fa-comment-alt icon-btn"></i>
-                                </div>
-                                <div class="col-4" data-toggle="tooltip" data-placement="top" title="Student Alerts">
-                                    <i class="fas fa-bell icon-btn"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Isabella</td>
-                    <td>Manno</td>
-                    <td>180 / 180</td>
-                    <td>100%</td>
-                    <td class="text-center">
-                        <div class="container">
-                            <div class="row text-center">
-                                <div class="col-4" data-toggle="tooltip" data-placement="top" title="Edit Student">
-                                    <i class="fas fa-user-edit icon-btn"></i>
-                                </div>
-                                <div class="col-4" data-toggle="tooltip" data-placement="top" title="Message Student">
-                                    <i class="fas fa-comment-alt icon-btn"></i>
-                                </div>
-                                <div class="col-4" data-toggle="tooltip" data-placement="top" title="Student Alerts">
-                                    <i class="fas fa-bell icon-btn"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>No Students Found.</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

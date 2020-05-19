@@ -6,9 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TeacherAssistant.Models.Students
 {
-    public class Student : IStudent
+    public class StudentsViewModel : IStudent
     {
-        [Key]
         public int StudentId { get; set; }
         [Required]
         public string TeacherId { get; set; }
@@ -20,5 +19,18 @@ namespace TeacherAssistant.Models.Students
         public string LastName { get; set; }
         [EmailAddress]
         public string Email { get; set; }
+        public List<StudentTableItem> StudentsTable { get; set; }
+
+        public static implicit operator Student(StudentsViewModel viewModel)
+        {
+            return new Student
+            {
+                StudentId = viewModel.StudentId,
+                TeacherId = viewModel.TeacherId,
+                FirstName = viewModel.FirstName,
+                LastName = viewModel.LastName,
+                Email = viewModel.Email
+            };
+        }
     }
 }
