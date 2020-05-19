@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using TeacherAssistant;
 using TeacherAssistant.Data;
+using TeacherAssistant.Services;
 
 namespace TeacherAssistant
 {
@@ -31,6 +33,7 @@ namespace TeacherAssistant
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.TryAddTransient<StudentsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

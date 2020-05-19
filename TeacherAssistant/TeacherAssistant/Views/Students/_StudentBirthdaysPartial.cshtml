@@ -1,0 +1,19 @@
+﻿@{
+    bool areBirthdaysToday = false;
+}
+
+<div class="card grow box-shadow" style="min-height:10em;">
+    <div class="card-header main-gradient"></div>
+    <div class="card-body text-center">
+        @if (areBirthdaysToday)
+        {
+            <p>There are no absent students today!</p>
+        }
+        else
+        {
+            <div class="text-center">
+                <p>There are no birthdays today.</p>
+            </div>
+        }
+    </div>
+</div>

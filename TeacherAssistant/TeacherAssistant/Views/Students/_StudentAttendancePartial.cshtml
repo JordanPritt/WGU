@@ -1,0 +1,28 @@
+﻿@{
+    bool hasBeenTaken = false;
+}
+
+<div class="card grow box-shadow" style="min-height:10em;">
+    <div class="card-header main-gradient"></div>
+    <div class="card-body text-center">
+        @if (hasBeenTaken)
+        {
+            <p>There are no absent students today!</p>
+        }
+        else
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3>No Attendance Yet</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <button class="btn btn-primary">Enter Attendance</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
