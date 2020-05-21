@@ -21,6 +21,7 @@ jobs:
       working-directory: ./TeacherAssistant
       run: ls -lths
     - name: Install dependencies
+      working-directory: ./TeacherAssistant
       run: dotnet restore
     - name: Build
       working-directory: ./TeacherAssistant
