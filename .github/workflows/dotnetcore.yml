@@ -17,17 +17,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: test
-      working-directory: ./TeacherAssistant
-      run: echo $PWD
-    - name: test 2
+    - name: Show Dir Contents
       working-directory: ./TeacherAssistant
       run: ls -lths
     - name: Install dependencies
       run: dotnet restore
     - name: Build
+      working-directory: ./TeacherAssistant
       run: dotnet build --configuration Release --no-restore
-      working-directory: ../TeacherAssistant
     - name: Test
+      working-directory: ./TeacherAssistant
       run: dotnet test --no-restore --verbosity normal
-      working-directory: ../TeacherAssistant
