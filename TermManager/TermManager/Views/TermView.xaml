@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TermManager.Views.TermView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Term" Clicked="OnAddTerm" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Student's Terms" VerticalOptions="Center" HorizontalTextAlignment="Center" IsVisible="true" FontSize="Medium" FontAttributes="Bold" TextColor="DarkBlue" Margin="10" />
+                <ListView ItemSelected="OnViewCourse" ItemsSource="{Binding AllTerms}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding TermTitle}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

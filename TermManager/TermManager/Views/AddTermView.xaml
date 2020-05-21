@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermManager.Views.AddTermView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Add Term" VerticalOptions="Center" HorizontalTextAlignment="Center" IsVisible="true" FontSize="Large" FontAttributes="Bold" TextColor="DarkBlue" Margin="10" />
+                <Entry Placeholder="Term Title" Margin="3" Text="{Binding TermTitle}" />
+                <Label Margin="3">Start Date</Label>
+                <DatePicker x:Name="StartTermDate" Margin="3" Date="{Binding TermStartDate}" />
+                <Label Margin="3">End Date</Label>
+                <DatePicker Margin="3" Date="{Binding TermEndDate}" />
+                <Button Text="Save" BackgroundColor="DarkBlue" TextColor="White" Margin="3" Command="{Binding SaveCommand}" />
+                <Button Text="Cancel" BackgroundColor="DarkRed" TextColor="White" Margin="3" Command="{Binding CancelCommand}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TermManager.Views.AssessmentView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Set" Command="{Binding SetAssessmentCommand}" />
+        <ToolbarItem Text="Delete" Command="{Binding DeleteAssessmentCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Assessment" VerticalOptions="Center" HorizontalTextAlignment="Center" IsVisible="true" FontSize="Large" FontAttributes="Bold" TextColor="DarkBlue" Margin="10" />
+                <Label Text="Assessment Type" Margin="10" />
+                <Picker SelectedItem="{Binding AssessmentType}" Title="Course Status" Margin="3" TitleColor="DarkBlue">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Objective</x:String>
+                            <x:String>Performance</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Assessment Name" Margin="10" />
+                <Entry Text="{Binding AssessmentName}" Margin="10" />
+                <Label Text="Assessment Due Date" Margin="10" />
+                <DatePicker Date="{Binding AssessmentDueDate}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
