@@ -18,6 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: test
+      working-directory: ./TeacherAssistant
       run: echo $PWD
     - name: Install dependencies
       run: dotnet restore
