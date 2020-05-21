@@ -7,6 +7,6 @@ This repository houses the various projects required to pass the WGU Bachelors o
 A desktop based system for processing appointments within an organization.
 
 ## Teacher Assistant
-![.NET Core](https://github.com/JordanPritt/WGU/workflows/.NET%20Core/badge.svg?branch=master)
+![.NET Core Build](https://github.com/JordanPritt/WGU/workflows/.NET%20Core%20Build/badge.svg)
 
 Capstone project built to serve as a tool for teachers to use in managing their class rooms.
