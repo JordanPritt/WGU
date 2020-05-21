@@ -22,7 +22,7 @@ jobs:
       run: echo $PWD
     - name: test 2
       working-directory: ./TeacherAssistant
-      run: echo ls -lths
+      run: ls -lths
     - name: Install dependencies
       run: dotnet restore
     - name: Build
