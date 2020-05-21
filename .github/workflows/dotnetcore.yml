@@ -1,0 +1,31 @@
+name: .NET Core Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Show Dir Contents
+      working-directory: ./TeacherAssistant
+      run: ls -lths
+    - name: Install dependencies
+      working-directory: ./TeacherAssistant
+      run: dotnet restore
+    - name: Build
+      working-directory: ./TeacherAssistant
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      working-directory: ./TeacherAssistant
+      run: dotnet test --no-restore --verbosity normal
