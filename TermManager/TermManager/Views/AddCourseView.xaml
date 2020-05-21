@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TermManager.Views.AddCourseView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Add Course" VerticalOptions="Center" HorizontalTextAlignment="Center" IsVisible="true" FontSize="Large" FontAttributes="Bold" TextColor="DarkBlue" Margin="10" />
+                <Entry x:Name="CourseTitle" Text="{Binding CourseTitle}" Placeholder="Course Title" Margin="3" />
+                <Label Margin="3">Start Date</Label>
+                <DatePicker x:Name="CourseStartDate" Date="{Binding StartCourseDate}" Margin="3" />
+                <Label Margin="3">End Date</Label>
+                <DatePicker x:Name="CourseEndDate" Date="{Binding EndCourseDate}" Margin="3" />
+                <Picker x:Name="CourseStatus" SelectedItem="{Binding CourseStatus}" Title="Course Status" Margin="3" TitleColor="DarkBlue">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>in progress</x:String>
+                            <x:String>completed</x:String>
+                            <x:String>dropped</x:String>
+                            <x:String>plan to take</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Entry x:Name="ProfessorName" Text="{Binding ProfessorName}" Placeholder="Professor's Name" />
+                <Entry x:Name="ProfessorPhone" Text="{Binding ProfessorPhone}" Placeholder="Professor's Phone" />
+                <Entry x:Name="ProfessorEmail" Text="{Binding ProfessorEmail}" Placeholder="Professor's Email" />
+                <Button x:Name="SaveCourseButton" Command="{Binding SaveCommand}" Text="Save" BackgroundColor="DarkBlue" TextColor="White" Margin="3" />
+                <Button Text="Cancel" Command="{Binding SaveCommand}" BackgroundColor="DarkRed" TextColor="White" Margin="3" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

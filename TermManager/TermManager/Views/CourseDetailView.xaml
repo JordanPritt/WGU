@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TermManager.Views.CourseDetailView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update" Command="{Binding UpdateCourseCommand}" />
+        <ToolbarItem Text="Delete" Command="{Binding DeleteCourseCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Course Details" VerticalOptions="Center" HorizontalTextAlignment="Center" IsVisible="true" FontSize="Large" FontAttributes="Bold" TextColor="DarkBlue" Margin="10" />
+                <Label Margin="3">Course Title</Label>
+                <Entry Text="{Binding CourseTitle}" Placeholder="Course Title" Margin="3" />
+                <Label Margin="3">Start Date</Label>
+                <DatePicker Date="{Binding StartCourseDate}" Margin="3" />
+                <Label Margin="3">End Date</Label>
+                <DatePicker Date="{Binding EndCourseDate}" Margin="3" />
+                <Label Margin="3">Start Date Alert</Label>
+                <Switch IsToggled="{Binding StartDateAlert}" />
+                <Label Margin="3">Due Date Alert</Label>
+                <Switch IsToggled="{Binding DueDateAlert}" />
+                <Picker SelectedItem="{Binding CourseStatus}" Title="Course Status" Margin="3" TitleColor="DarkBlue">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>in progress</x:String>
+                            <x:String>completed</x:String>
+                            <x:String>dropped</x:String>
+                            <x:String>plan to take</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Margin="3">Professor's Name</Label>
+                <Entry Text="{Binding ProfessorName}" Placeholder="Professor Name" Margin="3" />
+                <Label Margin="3">Professor's Phone</Label>
+                <Entry Text="{Binding ProfessorPhone}" Placeholder="Professor Email" Margin="3" />
+                <Label Margin="3">Professor's Email</Label>
+                <Entry Text="{Binding ProfessorEmail}" Placeholder="Professor Phone" />
+                <Label Margin="3">Course Notes</Label>
+                <Editor Text="{Binding CourseNotes}" AutoSize="TextChanges" Placeholder="Notes" />
+                <Button Text="Share Note" TextColor="DarkBlue" Command="{Binding ShareNoteCommand}" />
+                <Label Text="Assessment(s)" Margin="3" />
+                <StackLayout VerticalOptions="FillAndExpand">
+                <Button Text="Add Assessment" Command="{Binding AddAssessmentCommand}" />
+                    <ListView ItemSelected="OnViewAssessment" ItemsSource="{Binding Assessments}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
