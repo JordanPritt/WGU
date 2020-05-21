@@ -20,8 +20,8 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      working-directory: .\WGU\TeacherAssistant
+      working-directory: .\TeacherAssistant
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      working-directory: .\WGU\TeacherAssistant
+      working-directory: .\TeacherAssistant
       run: dotnet test --no-restore --verbosity normal
