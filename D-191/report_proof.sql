@@ -1,5 +1,7 @@
+-- =============================================================
 -- Author:      Jordan Pritt
 -- Description: Proof that the data we are quering is accurate.
+-- =============================================================
 
 DO 
 $$
@@ -20,14 +22,18 @@ BEGIN
     -- show the first record from query that populated report
     DROP TABLE IF EXISTS temp_result;
     CREATE TEMP TABLE temp_result AS
-    SELECT f.title AS title, r.inventory_id AS inventory_id, f.rating, f.length, COUNT(*) AS times_rented, SUM(p.amount) AS total
-        FROM public.payment AS p
-            JOIN public.rental AS r ON p.rental_id = r.rental_id
-            JOIN public.inventory AS i ON r.inventory_id = i.inventory_id
-            JOIN public.film AS f ON i.film_id = f.film_id
-        GROUP BY r.inventory_id, f.title, f.rating, f.length
-        ORDER BY total DESC
-        LIMIT 1;
+    SELECT f.title AS title, 
+           r.inventory_id AS inventory_id, 
+           f.rating, 
+           f.length, COUNT(*) AS times_rented, 
+           SUM(p.amount) AS total
+    FROM public.payment AS p
+        JOIN public.rental AS r ON p.rental_id = r.rental_id
+        JOIN public.inventory AS i ON r.inventory_id = i.inventory_id
+        JOIN public.film AS f ON i.film_id = f.film_id
+    GROUP BY r.inventory_id, f.title, f.rating, f.length
+    ORDER BY total DESC
+    LIMIT 1;
 
     -- prove first record is correct - as of first successful run
     DROP TABLE IF EXISTS temp_total;

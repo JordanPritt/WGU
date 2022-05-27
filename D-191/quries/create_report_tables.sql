@@ -1,3 +1,8 @@
+-- =======================================
+-- Author: Jordan Pritt
+-- Description: creates the report tables
+-- =======================================
+
 -- Create the report schema
 CREATE SCHEMA IF NOT EXISTS report;
 
@@ -7,7 +12,7 @@ CREATE TABLE IF NOT EXISTS report.top_ten_rentals_summary (
    title             TEXT NOT NULL,
    inventory_id      INT  NOT NULL,
    times_rented      INT  NOT NULL,
-   total             INT  NOT NULL
+   total             DECIMAL  NOT NULL
 );
 
 -- Create the details table to house our report data
@@ -18,9 +23,9 @@ CREATE TABLE IF NOT EXISTS report.top_ten_rentals_details (
    release_year     YEAR NOT NULL,
    rental_duration  INT,
    rental_rate      INT,
-   length           INT,
+   length           DECIMAL,
    replacement_cost INT,
    rating           MPAA_RATING NOT NULL,
    times_rented     INT NOT NULL,
-   total            INT NOT NULL
+   total            DECIMAL NOT NULL
 )

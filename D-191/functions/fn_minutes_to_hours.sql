@@ -2,10 +2,10 @@
 -- Description: Converts minutes to hours. This function assumes the integer input is 
 --              a minutes represnetaion of time, and then converts that time to hours.
 
-CREATE OR REPLACE FUNCTION fn_transform_length(lengthInMinutes INTEGER) RETURNS INTEGER AS
+CREATE OR REPLACE FUNCTION fn_minutes_to_hours(lengthInMinutes INTEGER) RETURNS DECIMAL AS
 $$
 BEGIN
-    RETURN lengthInMinutes / 60;
+    RETURN ROUND(lengthInMinutes::DECIMAL / 60.0, 1);
 END;
 $$
 

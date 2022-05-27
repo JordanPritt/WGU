@@ -1,9 +1,11 @@
+-- ====================================================================================================================
 -- Author:      Jordan Pritt
 -- Description: This procedure gathers the top ten rentals based on times rented and amount spent on the given DVD.
 --              Once the data is queried it is then added to the report table after transforming the minutes to hours.
--- Remarks:     Can, or should, be run whenever the rental table is updated. Since this is based on rentals.
+-- Remarks:     Should be run on weekly bases.
+-- ====================================================================================================================
 
-CREATE OR REPLACE PROCEDURE get_top_ten_rentals_summary()
+CREATE OR REPLACE PROCEDURE sp_get_summary()
 
 AS
 $$

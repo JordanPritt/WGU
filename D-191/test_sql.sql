@@ -1,4 +1,4 @@
-CALL public.get_top_ten_rentals_details();
+CALL public.sp_get_details();
 
 SELECT * FROM report.top_ten_rentals_summary;
 SELECT * FROM report.top_ten_rentals_details;
